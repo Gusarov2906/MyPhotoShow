@@ -4,10 +4,10 @@ def lenta(request):
     return render(request, 'landing/lenta.html', locals())
     
 def profile(request):
-    return render(request, 'landing/profile.html', locals())
+    return render(request, 'landing/tmp/profile.html', locals())
 
-def description(request):
-    return render(request, 'landing/description.html', locals())
+def intro(request):
+    return render(request, 'landing/index.html', locals())
 
 def landing(request):
-    return render(request, 'landing/lenta.html', locals())
+    return render(request, 'landing/index.html', locals())

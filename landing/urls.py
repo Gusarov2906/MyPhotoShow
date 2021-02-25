@@ -21,6 +21,6 @@ from landing import views
 urlpatterns = [
     url('profile', views.profile, name='landing'),
     url('lenta', views.lenta, name='landing'),
-    url('description', views.description, name='landing'),
+    url('description', views.intro, name='landing'),
     url('', views.landing, name='landing'),
 ]
