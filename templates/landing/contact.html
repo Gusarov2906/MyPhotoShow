@@ -3,8 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
     <link rel="stylesheet" href="../../static/css/style.css">
     <title>MyPhotoShow</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <style>
+        #email_text {
+            font-size: 24px;
+        }
+    </style>
 </head>
     
 <body class="conctact_body">
@@ -29,7 +37,7 @@
             <div class="contact_inner">
                 <h2 class="contact_title">Contacts</h2>
                 
-                <div class="contact_text">This work was done by the student for educational purposes.<br>If you have any question or suggestion, you can contact me in one of these services or by mail:<br>gusarov2906@gmail.com</div>
+                <div class="contact_text">This work was done by the student for educational purposes.<br>If you have any question or suggestion, you can contact me in one of these services or by mail:<br><span id="email_text">gusarov2906@gmail.com</span></div>
                 <div class="contact_services">
                     <a href="https://vk.com/gusarov2906">
                         <div class="service_btn_vk"></div>
@@ -40,8 +48,17 @@
                     <a href="https://www.facebook.com/profile.php?id=100006500474398">
                         <div class="service_btn_facebook"></div>
                     </a>
+                    <div class="test_list_box">
+                        <div>Test
+                            <ul>
+                                <li><a href="#">Test1</a></li>
+                                <li><a href="#">Test2</a></li>
+                                <li><a href="#">Test3</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                 <div class="contact_text">You can also watch the development on git hub: </div>
+                 <div class="contact_text">You can also watch the development on <span style="font-family: 'Comic Sans MS', monospace; font-weight: 700">github:</span></div>
                 <div id = "animation_test">
                     <a href="https://github.com/Gusarov2906">
                         <div id ="image" width="100px" height="100px"></div>
