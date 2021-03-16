@@ -14,3 +14,12 @@ def intro(request):
 
 def landing(request):
     return render(request, 'landing/index.html', locals())
+
+def main(request):
+    return render(request, 'landing/main.html', locals())
+
+def register(request):
+    return render(request, 'landing/register.html', locals())
+
+def login(request):
+    return render(request, 'landing/login.html', locals())
