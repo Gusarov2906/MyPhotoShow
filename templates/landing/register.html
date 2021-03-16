@@ -1,0 +1,72 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <script src="../../static/js/script.js"></script>
+    <title>MyPhotoShow</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <style>
+        #email_text {
+            font-size: 24px;
+        }
+    </style>
+</head>
+    
+<body class="log_in_and_registry_body">
+    
+    <header class="header">
+        <div class="container">
+            <div class="header_inner">
+                <a class="header_logo" href="index.html">MY PHOTO SHOW</a>
+                <nav class="nav">
+                    <a class="nav_link" href="./contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="contact">
+        <div class="container">
+            <div class="kaushan_title">
+                Registration
+            </div>
+            <form action="./feed.html">
+                <div class="input_container">
+                        <div class="input_field_container">
+                                 <input id="name" type="text" class="input_field" placeholder="name" pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}" required>
+                        </div>
+                        <div class="input_field_container">
+                                 <input id="surname" type="text" class="input_field" placeholder="surname" 
+                                 pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}"required>
+                        </div>
+                        <div class="input_field_container">
+                                 <input id="birthdate" type="date" class="input_field" placeholder="birth date">
+                        </div>                   
+                        <div class="input_field_container">
+                                 <input id="email" ty type="email" class="input_field" placeholder="email" required>
+                        </div>
+                        <div class="input_field_container">
+                                 <input id="login" type="input" class="input_field" placeholder="login" required>
+                        </div>
+                        <div class="input_field_container">
+                                <input id="password" class="input_field" type="password" placeholder="password" required>
+                        </div>
+                        <div class="input_field_container">
+                                <input id="password_again" class="input_field" type="password" onblur="isValidDate" placeholder="confirm password" required>
+                        </div>
+                        <div class="input_field_container">
+                             <button type="submit" class="login_btn">Register</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+   
+    
+</body>
+</html>
