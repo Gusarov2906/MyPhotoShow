@@ -1,31 +1,7 @@
-<!-- {% load static %} -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <title>MyPhotoShow</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-    <header class="header">
-        <div class="container">
-            <div class="header_inner">
-                <a class="header_logo" href="index.html">MY PHOTO SHOW</a>
-                
-                
-                <nav class="nav">
-                    <a class="nav_link" href="./login.html">Log in</a>
-                    <a class="nav_link" href="./contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    
-    
+{% extends 'landing/base.html' %}
+{%  block body_style %}
+{% endblock %}
+{% block content %}
     <div class="intro">
         <div class="container">
             <div class="intro_inner">
@@ -97,6 +73,4 @@
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+{% endblock %}

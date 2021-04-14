@@ -6,7 +6,7 @@ def feed(request):
 
 
 def profile(request):
-    return render(request, 'landing/profile.html', locals())
+    return render(request, 'landing/profile_test.html', {'author_name': 'gusarov2906', 'image': 'profile/2.jpg'})
 
 
 def contact(request):

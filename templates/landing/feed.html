@@ -1,35 +1,12 @@
-<!-- {% load static %} -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <title>MyPhotoShow</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-</head>
-<body class="feed_body">
-    <header class="header">
-        <div class="container">
-            <div class="header_inner">
-                <a class="header_logo" href="main.html">MY PHOTO SHOW</a>
-
-
-                <nav class="nav">
-                    <a class="nav_link" href="./feed.html">Feed</a>
-                    <a class="nav_link" 
-                       href="./profile.html">Profile</a>
-                    <a class="nav_link" href="./contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    
+{% extends 'landing/base.html' %}
+{%  block body_style %}
+    <body class="feed_body">
+{% endblock %}
+{% block content %}
     <div class = "feed">
         <div class ="container">
-            
-            <a href="#" style="text-decoration: none"> 
+
+            <a href="#" style="text-decoration: none">
                 <object>
                     <div class = "post">
                         <div class = "post_author">
@@ -44,12 +21,12 @@
                             <a class= "post_btn_like" href ="#"></a>
                             <a class= "post_btn_comment" href ="#"></a>
                         </div>
-                    </div> 
+                    </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>            
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Neruzah</a>
@@ -65,10 +42,10 @@
                         </div>
                     </div>
                 </object>
-            </a>     
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            </a>
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Qust1991</a>
@@ -84,10 +61,10 @@
                         </div>
                     </div>
                 </object>
-            </a> 
+            </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object> 
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@EsarEsar</a>
@@ -105,8 +82,8 @@
                  </object>
             </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Memalah</a>
@@ -124,8 +101,8 @@
                 </object>
             </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Nismit</a>
@@ -141,10 +118,10 @@
                         </div>
                     </div>
                 </object>
-            </a>    
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            </a>
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Urnobionu2</a>
@@ -162,8 +139,8 @@
                 </object>
             </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Elllera</a>
@@ -181,14 +158,14 @@
                 </object>
             </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Urnobionu2</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/9.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -200,14 +177,14 @@
                 </object>
             </a>
 
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Hmamoc231111</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/10.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -218,15 +195,15 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Ittaciot</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/11.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -237,15 +214,15 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Ybeova</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/12.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -256,15 +233,15 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Lueera</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/13.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -275,15 +252,15 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@Qaladana1102</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">   
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/14.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -294,9 +271,9 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object> 
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@chadyana</a>
@@ -313,15 +290,15 @@
                     </div>
                 </object>
             </a>
-            
-            <a href="#" style="text-decoration: none"> 
-                <object>             
+
+            <a href="#" style="text-decoration: none">
+                <object>
                     <div class = "post">
                         <div class = "post_author">
                             <a class="profile_link" href="#">@atrem1999</a>
                         </div>
                         <div class = "post_img">
-                            <a class = "img_link" href="#">               
+                            <a class = "img_link" href="#">
                                 <img src="../../static/img/feed/16.jpg" width="100%" height="100%">
                             </a>
                         </div>
@@ -332,8 +309,7 @@
                     </div>
                 </object>
             </a>
-            
+
         </div>
     </div>
-            
-</body>
+{% endblock %}

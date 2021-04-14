@@ -1,15 +1,7 @@
-<!-- {% load static %} -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <title>MyPhotoShow</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-</head>
-<body>
+{% extends 'landing/base.html' %}
+{%  block body_style %}
+{% endblock %}
+{% block content %}
     
     <header class="header">
         <div class="container">
@@ -98,6 +90,4 @@
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+{% endblock %}

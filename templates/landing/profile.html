@@ -1,216 +1,41 @@
-<!-- {% load static %} -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="../../static/img/icons/loading_1.png" type="image/png">
-    <link rel="stylesheet" href="../../static/css/style.css">
-    <title>MyPhotoShow</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-</head>
-<body class="profile_body">
-    
-    <header class="header">
-        <div class="container">
-            <div class="header_inner">
-                <a class="header_logo" href="main.html">MY PHOTO SHOW</a>
-                <nav class="nav">
-                    <a class="nav_link" href="./feed.html">Feed</a>
-                    <a class="nav_link" href="./profile.html">Profile</a>
-                    <a class="nav_link" href="./contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+{% extends 'landing/base.html' %}
+{%  block body_style %}
+    <body class="profile_body">
+{% endblock %}
+{% block content %}
     <div class="profile">
         <div class="profile_header_box">
             <div class="container">
                 <div class="profile_header">
 
                     <div class="profile_description">
-                        <dir class="profile_name">
+                        <div class="profile_name">
                             @gusarov2906
-                        </dir>
+                        </div>
                         <div class="profile_photo_box">
                             <div class="profile_photo">
                                  <img src="../../static/img/profile/gusarov2906.jpg" width="100%" height="100%">
                             </div>
                         </div>
-                        <dir class="profile_text">
+                        <div class="profile_text">
                             Name: Andrew<br>
                             Age: 20<br>
                             Location: Moscow, Russian<br>
                             Student of National Research University of Electronic Techonology
-                        </dir>
+                        </div>
                     </div>
                 </div>
-                    <dir class="logout">
+                    <div class="logout">
                         <a class="btn" href="index.html">Logout</a>
-                    </dir>
+                    </div>
             </div>
         </div>
         <div class="container">
             <div class ="profile_posts">
-                
-                <a href="#" style="text-decoration: none"> 
-                    <object>                  
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/1.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object> 
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/2.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/3.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/4.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/5.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/6.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/7.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-
-                <a href="#" style="text-decoration: none"> 
-                    <object>         
-                        <div class = "post">
-                            <div class = "post_author">
-                                <a class="profile_link" href="#">@gusarov2906</a>
-                            </div>
-                            <div class = "post_img">
-                                <a class = "img_link" href="#">
-                                    <img src="../../static/img/profile/8.jpg" width="100%" height="100%">
-                                </a>
-                            </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
-                        </div>
-                    </object>
-                </a>
-                
+                {% block posts %}
+                {% endblock %}
             </div>
         </div>
     </div>
 
-    
-    
-</body>
-</html>
+{% endblock %}
