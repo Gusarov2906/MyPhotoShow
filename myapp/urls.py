@@ -3,12 +3,12 @@ from django.conf.urls import url, include
 from myapp import views
 
 urlpatterns = [
-    url('profile', views.profile, name='landing'),
-    url('contact', views.contact, name='landing'),
-    url('feed', views.feed, name='landing'),
-    url('description', views.intro, name='landing'),
-    url('register', views.register, name='landing'),
-    url('main', views.main, name='landing'),
-    url('login', views.login, name='landing'),
-    url('', views.landing, name='landing'),
+    url('profile.html', views.profile, name='landing'),
+    url('contact.html', views.contact, name='landing'),
+    url('feed.html', views.feed, name='landing'),
+    url('description.html', views.intro, name='landing'),
+    url('register.html', views.register, name='landing'),
+    url('main.html', views.main, name='landing'),
+    url('login.html', views.login, name='landing'),
+    url('index.html', views.landing, name='landing'),
 ]

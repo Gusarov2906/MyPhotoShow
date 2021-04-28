@@ -5,19 +5,24 @@
 {% block content %}
     <div class="contact">
         <div class="container">
-            <form action="./feed.html">
+            <form method="POSt" action="accounts/">
+                {% csrf_token %}
                 <div class="input_container">
                     <div id = "login_anim">
                         <div id ="image1" width="180px" height="180px"></div>
                     </div>
                     <div class="input_field_container">
-                             <input type="input"  id="abcd" class="input_field" placeholder="login" required>
+                        <label for="login">
+                            <input type="text" class="input_field" placeholder="login" name="login" required>
+                        </label>
                     </div>
                     <div class="input_field_container">
-                            <input id="abcde" class="input_field" type="password" placeholder="password" required>
+                        <label for="password">
+                            <input type="password" class="input_field" placeholder="password" name="password" required>
+                        </label>
                     </div>
                     <div class="input_field_container">
-                         <button  id="abc" type="submit"  class="login_btn">Log in</button>
+                         <button  type="submit"  class="login_btn">Log in</button>
                     </div>
                     <div class="note">
                         If you are not registered yet you can register <a class="link_to_register" href="./register.html">here</a>.
