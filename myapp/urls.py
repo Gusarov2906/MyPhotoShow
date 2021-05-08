@@ -9,6 +9,7 @@ urlpatterns = [
     url('description.html', views.intro, name='landing'),
     url('register.html', views.register, name='landing'),
     url('main.html', views.main, name='landing'),
-    url('login.html', views.login, name='landing'),
-    url('index.html', views.landing, name='landing'),
+    url('login.html', views.loginReq, name='landing'),
+    #url('', views.landing, name='landing'),
+    url('accountss/', views.auth, name='auth'),
 ]

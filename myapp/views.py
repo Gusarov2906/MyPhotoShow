@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 
 
 def feed(request):
@@ -31,13 +34,19 @@ def main(request):
 def register(request):
     return render(request, 'landing/register.html', locals())
 
-@csrf_exempt
-def login(request):
+
+def loginReq(request):
+    return render(request, 'landing/login.html', locals())
+
+def auth(request):
     if request.method == "POST":
-        username = request.POST['username']
+        username = request.POST['login']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-        #else:
-    return render(request, 'landing/login.html', locals())
+            return HttpResponseRedirect("/profile.html")
+        else:
+            return HttpResponseRedirect("/login.html")
+
+
