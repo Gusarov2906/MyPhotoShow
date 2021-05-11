@@ -1,7 +1,6 @@
 @font-face{
 font-family: CrackManCYR-Regular;
-src: local("CrackManCYR-Regular"), url("../fonts/CrackManCYR-Regular.ttf"); 
-unicode-range: unicode-range;
+src: local("CrackManCYR-Regular"), url("../fonts/CrackManCYR-Regular.ttf");
 }
 
 body {
@@ -264,8 +263,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about_img {
-    height: 250;
-    width: 380;
+    height: 250px;
+    width: 380px;
 }
 
 /* Statistics */
@@ -312,8 +311,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .feed_body .header {
     position: fixed;
-    background-attachment: scroll;
-    background: #1d1425;
+    background: #1d1425 scroll;
     z-index: 1000;
 }
 
@@ -344,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
 .post:hover {
      width: 385px;
     height: 445px;
-    margin: 7.5px 7.5px;
+    margin: 7px 7px;
     background-color: #fff;
 }
 
@@ -357,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 370px;
     overflow: hidden;
     vertical-align: middle;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .post_author {
@@ -393,10 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post_btn_like:hover {
-    background-color: #000;
-    background: url("../img/icons/like_highlight.png")
-    center
-    no-repeat;
+    background: #000 url("../img/icons/like_highlight.png") no-repeat center;
     -webkit-background-size: cover;
      background-size: cover;
 }
@@ -415,10 +410,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post_btn_comment:hover {
-    background-color: #000;
-    background: url("../img/icons/comment_highlight.png")
-    center
-    no-repeat;
+    background: #000 url("../img/icons/comment_highlight.png") no-repeat;
     -webkit-background-size: cover;
      background-size: cover;
 }
@@ -603,8 +595,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile_body .header {
     position: fixed;
-    background-attachment: scroll;
-    background: #1d1425;
+    background: #1d1425 scroll;
     z-index: 1100;
 }
 
@@ -619,8 +610,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile_header {
     width: 500px;
-    margin: auto;
-    margin-top: 15px;
+    margin: 15px auto auto;
 }
 .profile_photo_box {
     width: 310px;
@@ -669,14 +659,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logout{
-    text-align: right;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
     padding-bottom: 15px;
-    margin-right: 15px;
+    margin-right: auto;
     margin-top: 10px;
     font-size: 30px;
     text-transform: uppercase;
     font-weight: 800;
 }
+
 
 .logout>.btn{
     color: #1d1425;
@@ -696,7 +689,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 20px;
     min-width: 90px;
     font-size: 13px;
-    font-family: 'CrackManCYR-Regular'
+    font-family: 'CrackManCYR-Regular', serif
 }
 
 .test_list_box > div {
@@ -851,12 +844,8 @@ h1, h2, h3, h4, h5, h6 {
 .note{
     width: 250px;
     text-align: center;
-    margin-bottom: 15px;
-    margin-left: calc(50% - 125px);
-    margin-top: 25px;
     font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 25px auto 15px calc(50% - 125px);
 }
 
 .link_to_register{
@@ -880,3 +869,4 @@ input:invalid {
     border-color: red;
     border-bottom-width: 5px;
 }
+

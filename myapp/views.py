@@ -5,38 +5,50 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-
+from .models import Person, Post
+import os
 
 def feed(request):
-    return render(request, 'landing/feed.html', locals())
+    return render(request, 'feed.html', locals())
 
 
 def profile(request):
-    return render(request, 'landing/profile_test.html', {'author_name': 'gusarov2906', 'image': 'profile/2.jpg'})
+    person = Person.objects.filter(id=request.user.id)
+    #person.avatar = "../../static/img/profile/1.jpg"
+    # posts = Post.objects.all()
+    if person.count()>0:
+        return render(request, 'profile.html', {'user': request.user, 'person': person[0]})
+    else:
+        return render(request, 'profile.html', {'user': request.user})
 
 
 def contact(request):
-    return render(request, 'landing/contact.html', locals())
+    return render(request, 'contact.html', locals())
 
 
 def intro(request):
-    return render(request, 'landing/index.html', locals())
+    return render(request, 'index.html', locals())
 
 
 def landing(request):
-    return render(request, 'landing/index.html', locals())
+    return render(request, 'index.html', locals())
 
 
 def main(request):
-    return render(request, 'landing/main.html', locals())
+    count_posts = Post.objects.all().count()
+    count_users = User.objects.all().count()
+    count_comments = 0
+    return render(request, 'main.html', {'count_posts': count_posts, 'count_users': count_users,
+                                         'count_comments': count_comments})
 
 
 def register(request):
-    return render(request, 'landing/register.html', locals())
+    return render(request, 'register.html', locals())
 
 
-def loginReq(request):
-    return render(request, 'landing/login.html', locals())
+def login_req(request):
+    return render(request, 'login.html', locals())
+
 
 def auth(request):
     if request.method == "POST":
@@ -45,8 +57,38 @@ def auth(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect("/profile.html")
+            # return HttpResponseRedirect("/profile.html")
+            person = Person.objects.filter(id=request.user.id)
+            return HttpResponseRedirect('/profile.html', {'user': user, 'person': person})
         else:
             return HttpResponseRedirect("/login.html")
 
 
+def reg(request):
+    if request.method == "POST":
+        username = request.POST.get('username', False)
+        password = request.POST.get('password', False)
+        email = request.POST.get('email', False)
+        firstname = request.POST.get('name', False)
+        lastname = request.POST.get('surname', False)
+        birthdate = request.POST.get('birthdate', False)
+
+        # TODO: check if already existed
+        if username and password and email and firstname and lastname:
+            user = User.objects.create_user(username=username,
+                                            email=email,
+                                            password=password,
+                                            first_name=firstname,
+                                            last_name=lastname)
+            if Person.objects.filter(id=user.id).count() == 0:
+                person = Person.objects.create(id=user, avatar="../../static/img/profile/1.jpg", description="test")
+                try:
+                    os.mkdir("././media/img/profile/" + str(user.id))
+                except OSError as error:
+                    print(error)
+            else:
+                person = Person.objects.filter(id=request.user.id)
+            login(request, user)
+            return HttpResponseRedirect('/profile.html', {'user': user, 'person': person})
+        else:
+            return HttpResponseRedirect("/register.html")

@@ -1,0 +1,21 @@
+{% extends 'profile.html' %}
+{% block posts %}
+                <a href="#" style="text-decoration: none">
+                    <object>
+                        <div class = "post">
+                            <div class = "post_author">
+                                <a class="profile_link" href="#">@{{ user.username }} </a>
+                            </div>
+                            <div class = "post_img">
+                                <a class = "img_link" href="#">
+                                    <img src="../../static/img/{{ post.img }}" width="100%" height="100%">
+                                </a>
+                            </div>
+                            <div class="post_lower_bar">
+                                <a class= "post_btn_like" href ="#"> {{ post.number_of_likes }}</a>
+                                <a class= "post_btn_comment" href ="#"></a>
+                            </div>
+                        </div>
+                    </object>
+                </a>
+{% endblock %}
