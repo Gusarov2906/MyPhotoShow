@@ -8,48 +8,48 @@
             <form method="POST" action="reg/">
                 {% csrf_token %}
                 <div class="input_container">
-                         <div id = "login_anim">
-                            <div id ="image1" width="180px" height="180px"></div>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="name">
-                                <input id="name" type="text" class="input_field" placeholder="name" pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}" name="name" required>
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="surname">
-                                <input id="surname" type="text" class="input_field" placeholder="surname" name="surname"
-                                                                pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}" required>
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="birthdate">
-                                <input id="birthdate" type="date" class="input_field" placeholder="birth date" name="birthdate">
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="email">
-                                <input id="email" type="email" class="input_field" placeholder="email" name="email" required >
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="username">
-                                <input id="username" type="text" class="input_field" placeholder="login" name="username" required>
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="password">
-                                <input id="password" class="input_field" type="password" placeholder="password" name="password" required>
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                            <label for="password_again">
-                                <input id="password_again" class="input_field" type="password" onblur="isValidDate" placeholder="confirm password"  name="password_again" required>
-                            </label>
-                        </div>
-                        <div class="input_field_container">
-                             <button type="submit" class="login_btn">Register</button>
-                        </div>
+                     <div id = "login_anim">
+                        <div id ="image1" width="180px" height="180px"></div>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="name">
+                            <input id="name" type="text" class="input_field" placeholder="name" pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}" name="name" required>
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="surname">
+                            <input id="surname" type="text" class="input_field" placeholder="surname" name="surname"
+                                                            pattern="[A-ZА-Я]{1}[a-zа-я]{1,10}" required>
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="birthdate">
+                            <input id="birthdate" type="date" class="input_field" placeholder="birth date" name="birthdate">
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="email">
+                            <input id="email" type="email" class="input_field" placeholder="email" name="email" required >
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="username">
+                            <input id="username" type="text" class="input_field" placeholder="login" name="username" required>
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="password">
+                            <input id="password" class="input_field" type="password" placeholder="password" name="password" required>
+                        </label>
+                     </div>
+                     <div class="input_field_container">
+                        <label for="password_again">
+                            <input id="password_again" class="input_field" type="password" onblur="isValidDate" placeholder="confirm password"  name="password_again" required>
+                        </label>
+                    </div>
+                     <div class="input_field_container">
+                         <button type="submit" class="login_btn">Register</button>
+                     </div>
                 </div>
             </form>
         </div>

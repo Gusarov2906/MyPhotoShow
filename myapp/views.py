@@ -92,3 +92,32 @@ def reg(request):
             return HttpResponseRedirect('/profile.html', {'user': user, 'person': person})
         else:
             return HttpResponseRedirect("/register.html")
+
+
+def create_post(request):
+    return render(request, 'creating_post.html', locals())
+
+
+def edit_profile(request):
+    return render(request, 'editing_profile_info.html', locals())
+
+
+def edit_profile_info(request):
+    if request.method == "POST":
+        description = request.POST.get('description', False)
+        img = request.FILES.get('img', False)
+        person = Person.objects.filter(id=request.user.id).first()
+        if description:
+            person.description = description
+        if img:
+            person.avatar = img
+        person.save()
+        return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person})
+    return HttpResponseRedirect('/profile.html', {'user': request.user})
+
+def add_post(request):
+    if request.method == "POST":
+
+        return HttpResponseRedirect('/profile.html', {'user': request.user})
+
+    return HttpResponseRedirect('/profile.html', {'user': request.user})

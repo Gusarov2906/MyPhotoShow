@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%  block body_style %}
+    <body class="creating_post_body" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+{% block content %}
+ <div class="creating_post_margin">
+        <form class="form"  method="POST" action="edit_profile_info/"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container">
+                <h2 class="kaushan_title">Editing profile</h2>
+                <label>
+                    <textarea  class="profile_description_input" cols="40" rows="5" placeholder="About you" name="description"></textarea>
+                </label>
+                <input class="file_chooser" type="file" name="img"/>
+            </div>
+            <div class="input_field_container" id="ipf">
+                <button class="login_btn" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

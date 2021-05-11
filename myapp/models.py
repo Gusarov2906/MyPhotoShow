@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 
 class Person(models.Model):
     id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
-    avatar = models.ImageField(upload_to='img/profile/'+str(id))
+    avatar = models.ImageField(upload_to='img/profile')
     description = models.CharField(max_length=255)
 
 
 class Post(models.Model):
-    img = models.ImageField(upload_to='img/profile/'+str(id))
+    img = models.ImageField(upload_to='img/profile')
     author = models.ForeignKey(Person, on_delete=models.CASCADE)
     number_of_likes = models.IntegerField(default=0)
     date_of_publication = models.DateField(auto_now=True)

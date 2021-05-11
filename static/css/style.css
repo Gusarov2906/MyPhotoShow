@@ -319,6 +319,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 110px;
 }
 
+.creating_post_margin {
+}
+
+.creating_post_margin .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    align-items: center;
+    margin-top: 200px;
+}
+
 .feed .container {
     display: flex;
     flex-direction: row;
@@ -591,6 +603,18 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     background-color: #1d1425;
+}
+
+.creating_post_body {
+    width: 100%;
+    height: 100%;
+    background-color: #1d1425;
+}
+
+.creating_post_body .header {
+    position: fixed;
+    background: #1d1425 scroll;
+    z-index: 1100;
 }
 
 .profile_body .header {
@@ -870,3 +894,39 @@ input:invalid {
     border-bottom-width: 5px;
 }
 
+.file_chooser{
+    filter:alpha(opacity:0);
+    font-size:18px;
+    cursor:pointer;
+    padding:0;
+    width: 300px;
+    margin: auto;
+    margin-left: calc(50% - 150px);
+    border:none;
+    text-align: center;
+}
+
+.creating_post_margin> .container>.kaushan_title{
+    margin-bottom: 50px;
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.form>.input_field_container{
+    margin-top: 50px;
+}
+
+.profile_description_input{
+    height: 250px;
+    width: 400px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+#ipf{
+    margin-top: 50px;
+}
