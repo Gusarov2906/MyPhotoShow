@@ -400,12 +400,21 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-size: cover;
      background-size: cover;
     transition: background .25s linear, color .2s linear;
+    padding: 0;
+    border: none;
 }
 
 .post_btn_like:hover {
-    background: #000 url("../img/icons/like_highlight.png") no-repeat center;
+    background: url("../img/icons/like_highlight.png") no-repeat center;
     -webkit-background-size: cover;
      background-size: cover;
+}
+
+.num_of_likes{
+    margin-right: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    color: #1d1425;
 }
 
 .post_btn_comment {

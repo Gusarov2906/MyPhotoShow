@@ -17,5 +17,6 @@ urlpatterns = [
     url('reg/', views.reg, name='reg'),
     url('edit_profile_info/', views.edit_profile_info, name='auth'),
     url('create_post/', views.add_post, name='reg'),
+    url('like/', views.like_post, name='like'),
     #url('', views.landing, name='landing'),
 ]

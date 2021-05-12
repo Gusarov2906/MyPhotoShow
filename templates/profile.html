@@ -33,7 +33,7 @@
         <div class="container">
             <div class ="profile_posts">
             {% for post in posts %}
-                <a href="#" style="text-decoration: none">
+                <a style="text-decoration: none">
                     <object>
                         <div class = "post">
                             <div class = "post_author">
@@ -44,10 +44,21 @@
                                     <img width="100%" height="100%" alt="photo" src={{ post.img.url }}>
                                 </a>
                             </div>
-                            <div class="post_lower_bar">
-                                <a class= "post_btn_like" href ="#"></a>
-                                <a class= "post_btn_comment" href ="#"></a>
-                            </div>
+                            <form action="like/" method="POST" id='{{post.id}}' class='like-form'>
+                                {% csrf_token %}
+                                <input id="btn{{post.id}}" type="hidden" name="post_id" value={{post.id}}>
+                                <div class="post_lower_bar">
+                                    <button type='submit' class= "post_btn_like"></button>
+                                    <!-- <input class= "post_btn_like" type="submit" id="like"  name='{{post.id}}'/>-->
+                                    <div class="num_of_likes">
+                                        <div class="like-count{{post.id}}">
+                                            {{ post.number_of_likes }}
+                                        </div>
+                                    </div>
+                                    <!---<a class= "post_btn_comment" href ="#"></a> --->
+                                </div>
+                            </form>
+
                         </div>
                     </object>
                 </a>
@@ -55,5 +66,23 @@
             </div>
         </div>
     </div>
-
+<!--
+<script>
+$('#like').click(function(){
+      $.ajax({
+               type: "POST",
+               url: "{% url 'like' %}",
+               data: {'post_id': $(this).attr('name'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+               dataType: "json",
+               success: function(response) {
+                      alert(response.message);
+                      alert('Company likes count is now ' + response.likes_count);
+                },
+                error: function(rs, e) {
+                       alert(rs.responseText);
+                }
+          });
+    })
+    !-->
+</script>
 {% endblock %}

@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from .models import Person, Post
+import json
+
 import os
 
 
@@ -124,5 +126,21 @@ def add_post(request):
         posts = Post.objects.filter(author=person.first())
         posts.create(author=person.first(), img=img, number_of_likes=0)
         return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
+    return HttpResponseRedirect('/profile.html', {'user': request.user})
 
+
+def like_post(request):
+    #print("hello")
+    global ctx
+    if request.method == "POST":
+        post_id = request.POST.get('post_id', False)
+        person = Person.objects.filter(id=request.user.id)
+        posts = Post.objects.filter(author=person.first())
+        post = Post.objects.filter(id=post_id).first()
+        print(post_id)
+        post.number_of_likes += 1
+        post.save()
+        ctx = {'post_id': post.id, 'likes_count': post.number_of_likes}
+        return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
+    #return HttpResponse(json.dumps(ctx), content_type='application/json')
     return HttpResponseRedirect('/profile.html', {'user': request.user})
