@@ -119,6 +119,10 @@ def edit_profile_info(request):
 
 def add_post(request):
     if request.method == "POST":
-        return HttpResponseRedirect('/profile.html', {'user': request.user})
+        img = request.FILES.get('img', False)
+        person = Person.objects.filter(id=request.user.id)
+        posts = Post.objects.filter(author=person.first())
+        posts.create(author=person.first(), img=img, number_of_likes=0)
+        return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
 
     return HttpResponseRedirect('/profile.html', {'user': request.user})
