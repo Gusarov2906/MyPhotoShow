@@ -46,12 +46,12 @@
                             </div>
                             <form action="like/" method="POST" id='{{post.id}}' class='like-form'>
                                 {% csrf_token %}
-                                <input id="btn{{post.id}}" type="hidden" name="post_id" value={{post.id}}>
+                                <input id="btn{{post.id}}" type="hidden" name="post_id" value="{{post.id}}">
                                 <div class="post_lower_bar">
-                                    <button type='submit' class= "post_btn_like"></button>
+                                    <input type="button" class= "post_btn_like" onclick="setLike({{post.id}})"/>
                                     <!-- <input class= "post_btn_like" type="submit" id="like"  name='{{post.id}}'/>-->
                                     <div class="num_of_likes">
-                                        <div class="like-count{{post.id}}">
+                                        <div id="like-count{{post.id}}" data-like="{{ post.number_of_likes }}">
                                             {{ post.number_of_likes }}
                                         </div>
                                     </div>
@@ -66,23 +66,44 @@
             </div>
         </div>
     </div>
-<!--
+
 <script>
-$('#like').click(function(){
+function setLike(id)
+{
       $.ajax({
                type: "POST",
-               url: "{% url 'like' %}",
-               data: {'post_id': $(this).attr('name'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+               url: $("#"+id).attr('action'),
+               data: {'post_id': $("#btn"+id).val(), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
                dataType: "json",
                success: function(response) {
-                      alert(response.message);
-                      alert('Company likes count is now ' + response.likes_count);
+                      //alert(response["likes_count"]);
+                      //alert('Company likes count is now ' + response.likes_count);
+                      $("#like-count"+id).empty();
+                      $("#like-count"+id).append(response["likes_count"]);
                 },
                 error: function(rs, e) {
                        alert(rs.responseText);
                 }
           });
-    })
-    !-->
+    }
+setInterval(function () {
+    $.ajax({
+        url: "refresh/",
+        type: 'GET',
+        data: {'check': true},
+        dataType:"json",
+        success: function (data) {
+            for (id in data)
+            {
+                if(data[id]["likes_count"]!=$("#like-count"+data[id]["id"]).attr("data-like"))
+                {
+                  $("#like-count"+data[id]["id"]).attr("data-like",data[id]["likes_count"]);
+                  $("#like-count"+data[id]["id"]).empty();
+                  $("#like-count"+data[id]["id"]).append(data[id]["likes_count"]);
+                }
+            }
+        }
+    });
+}, 1000);
 </script>
 {% endblock %}

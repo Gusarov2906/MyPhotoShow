@@ -141,6 +141,13 @@ def like_post(request):
         post.number_of_likes += 1
         post.save()
         ctx = {'post_id': post.id, 'likes_count': post.number_of_likes}
-        return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
-    #return HttpResponse(json.dumps(ctx), content_type='application/json')
-    return HttpResponseRedirect('/profile.html', {'user': request.user})
+        #return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
+    return HttpResponse(json.dumps(ctx))
+    #return HttpResponseRedirect('/profile.html', {'user': request.user})
+def refresh(request):
+  posts = Post.objects.all()
+  data = []
+  for post in posts:
+    data.append({"likes_count":post.number_of_likes,"id":post.id})
+  return HttpResponse(json.dumps(data))
+
