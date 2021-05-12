@@ -6,310 +6,78 @@
     <div class = "feed">
         <div class ="container">
 
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Celea12</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/1.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
+            {% for post in posts %}
+                <a style="text-decoration: none">
+                    <object>
+                        <div class = "post">
+                            <div class = "post_author">
+                                <a class="profile_link" href="#">@{{ post.author.id }}</a>
+                            </div>
+                            <div class = "post_img">
+                                <a class = "img_link" href="#">
+                                    <img width="100%" height="100%" alt="photo" src={{ post.img.url }}>
+                                </a>
+                            </div>
+                            <form action="like/" method="POST" id='{{post.id}}' class='like-form'>
+                                {% csrf_token %}
+                                <input id="btn{{post.id}}" type="hidden" name="post_id" value="{{post.id}}">
+                                <div class="post_lower_bar">
+                                    <input type="button" class= "post_btn_like" onclick="setLike({{post.id}})"/>
+                                    <!-- <input class= "post_btn_like" type="submit" id="like"  name='{{post.id}}'/>-->
+                                    <div class="num_of_likes">
+                                        <div id="like-count{{post.id}}" data-like="{{ post.number_of_likes }}">
+                                            {{ post.number_of_likes }}
+                                        </div>
+                                    </div>
+                                    <!---<a class= "post_btn_comment" href ="#"></a> --->
+                                </div>
+                            </form>
 
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Neruzah</a>
                         </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/2.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
+                    </object>
+                </a>
+            {% endfor %}
+            </div>
 
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Qust1991</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/3.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@EsarEsar</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/4.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                 </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Memalah</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/5.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Nismit</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/6.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Urnobionu2</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/7.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Elllera</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/8.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Urnobionu2</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/9.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Hmamoc231111</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/10.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Ittaciot</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/11.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Ybeova</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/12.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Lueera</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/13.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@Qaladana1102</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/14.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@chadyana</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/15.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                        <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-            <a href="#" style="text-decoration: none">
-                <object>
-                    <div class = "post">
-                        <div class = "post_author">
-                            <a class="profile_link" href="#">@atrem1999</a>
-                        </div>
-                        <div class = "post_img">
-                            <a class = "img_link" href="#">
-                                <img src="../static/img/feed/16.jpg" width="100%" height="100%">
-                            </a>
-                        </div>
-                                       <div class="post_lower_bar">
-                            <a class= "post_btn_like" href ="#"></a>
-                            <a class= "post_btn_comment" href ="#"></a>
-                        </div>
-                    </div>
-                </object>
-            </a>
-
-        </div>
     </div>
+
+<script>
+function setLike(id)
+{
+      $.ajax({
+               type: "POST",
+               url: $("#"+id).attr('action'),
+               data: {'post_id': $("#btn"+id).val(), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+               dataType: "json",
+               success: function(response) {
+                      //alert(response["likes_count"]);
+                      //alert('Company likes count is now ' + response.likes_count);
+                      $("#like-count"+id).empty();
+                      $("#like-count"+id).append(response["likes_count"]);
+                },
+                error: function(rs, e) {
+                       alert(rs.responseText);
+                }
+          });
+    }
+setInterval(function () {
+    $.ajax({
+        url: "refresh/",
+        type: 'GET',
+        data: {'check': true},
+        dataType:"json",
+        success: function (data) {
+            for (id in data)
+            {
+                if(data[id]["likes_count"]!=$("#like-count"+data[id]["id"]).attr("data-like"))
+                {
+                  $("#like-count"+data[id]["id"]).attr("data-like",data[id]["likes_count"]);
+                  $("#like-count"+data[id]["id"]).empty();
+                  $("#like-count"+data[id]["id"]).append(data[id]["likes_count"]);
+                }
+            }
+        }
+    });
+}, 10000);
+</script>
 {% endblock %}

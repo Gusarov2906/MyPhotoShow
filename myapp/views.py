@@ -5,14 +5,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-from .models import Person, Post
+from .models import Person, Post, UsersLikedPosts
 import json
 
 import os
 
 
 def feed(request):
-    return render(request, 'feed.html', locals())
+    posts = Post.objects.order_by('date_of_publication')[::-1]
+    return render(request, 'feed.html', {'posts': posts})
 
 
 def profile(request):
@@ -28,21 +29,12 @@ def profile(request):
 def contact(request):
     return render(request, 'contact.html', locals())
 
-
-def intro(request):
-    return render(request, 'index.html', locals())
-
-
-def landing(request):
-    return render(request, 'index.html', locals())
-
-
 def main(request):
     count_posts = Post.objects.all().count()
     count_users = User.objects.all().count()
-    count_comments = 0
+    count_likes = UsersLikedPosts.objects.all().count()
     return render(request, 'main.html', {'count_posts': count_posts, 'count_users': count_users,
-                                         'count_comments': count_comments})
+                                         'count_likes': count_likes})
 
 
 def register(request):
@@ -84,7 +76,7 @@ def reg(request):
                                             first_name=firstname,
                                             last_name=lastname)
             if Person.objects.filter(id=user.id).count() == 0:
-                person = Person.objects.create(id=user, avatar="../../static/img/profile/1.jpg", description="test")
+                person = Person.objects.create(id=user, avatar="../../static/img/profile/default.png", description=" ")
                 try:
                     os.mkdir("././media/img/profile/" + str(user.id))
                 except OSError as error:
@@ -134,20 +126,27 @@ def like_post(request):
     global ctx
     if request.method == "POST":
         post_id = request.POST.get('post_id', False)
-        person = Person.objects.filter(id=request.user.id)
-        posts = Post.objects.filter(author=person.first())
+        person = Person.objects.filter(id=request.user.id).first()
+        posts = Post.objects.filter(author=person)
         post = Post.objects.filter(id=post_id).first()
-        print(post_id)
-        post.number_of_likes += 1
+        postLikedUser = UsersLikedPosts.objects.filter(person=person, post=post)
+        #print(post_id)
+        if postLikedUser:
+            post.number_of_likes -= 1
+            postLikedUser.delete()
+        else:
+            post.number_of_likes += 1
+            UsersLikedPosts.objects.create(person=person, post=post)
         post.save()
         ctx = {'post_id': post.id, 'likes_count': post.number_of_likes}
         #return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person, 'posts': posts})
     return HttpResponse(json.dumps(ctx))
     #return HttpResponseRedirect('/profile.html', {'user': request.user})
+
 def refresh(request):
   posts = Post.objects.all()
   data = []
   for post in posts:
-    data.append({"likes_count":post.number_of_likes,"id":post.id})
+    data.append({"likes_count": post.number_of_likes, "id": post.id})
   return HttpResponse(json.dumps(data))
 

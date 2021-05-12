@@ -26,7 +26,6 @@ urlpatterns = [
     #url(r'^landing/', include('landing.urls')),
     #path('accounts/', include('django.contrib.auth.urls')),
     url(r'', include('myapp.urls')),
-    url(r'^logout/$', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 ]
 
 if settings.DEBUG:  # new

@@ -24,31 +24,31 @@
                      </div>
                      <div class="input_field_container">
                         <label for="birthdate">
-                            <input id="birthdate" type="date" class="input_field" placeholder="birth date" name="birthdate">
+                            <input id="birthdate" type="date" class="input_field" placeholder="birth date" onclick="check()" name="birthdate">
                         </label>
                      </div>
                      <div class="input_field_container">
                         <label for="email">
-                            <input id="email" type="email" class="input_field" placeholder="email" name="email" required >
+                            <input id="email" type="email" class="input_field" placeholder="email" name="email" onclick="check()" required >
                         </label>
                      </div>
                      <div class="input_field_container">
                         <label for="username">
-                            <input id="username" type="text" class="input_field" placeholder="login" name="username" required>
+                            <input id="username" type="text" class="input_field" placeholder="login" name="username" onclick="check()" required>
                         </label>
                      </div>
                      <div class="input_field_container">
                         <label for="password">
-                            <input id="password" class="input_field" type="password" placeholder="password" name="password" required>
+                            <input id="password" class="input_field" type="password" placeholder="password" name="password" onclick="check()" required>
                         </label>
                      </div>
                      <div class="input_field_container">
                         <label for="password_again">
-                            <input id="password_again" class="input_field" type="password" onblur="isValidDate" placeholder="confirm password"  name="password_again" required>
+                            <input id="password_again" class="input_field" type="password" onclick="check()" placeholder="confirm password"  name="password_again" required>
                         </label>
                     </div>
                      <div class="input_field_container">
-                         <button type="submit" class="login_btn">Register</button>
+                         <button type="submit" class="login_btn" onclick="check()" >Register</button>
                      </div>
                 </div>
             </form>
