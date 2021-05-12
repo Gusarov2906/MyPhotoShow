@@ -14,7 +14,7 @@
                         </div>
                         <div class="profile_photo_box">
                             <div class="profile_photo">
-                                 <img width="100%" height="100%" src= {{ person.avatar.url }} >
+                                 <img width="100%" height="100%"  alt="avatar" src= {{ person.avatar.url }} >
                             </div>
                         </div>
                         <br>
@@ -32,8 +32,26 @@
         </div>
         <div class="container">
             <div class ="profile_posts">
-                {% block post %}
-                {% endblock %}
+            {% for post in posts %}
+                <a href="#" style="text-decoration: none">
+                    <object>
+                        <div class = "post">
+                            <div class = "post_author">
+                                <a class="profile_link" href="#">@{{ post.author.id }}</a>
+                            </div>
+                            <div class = "post_img">
+                                <a class = "img_link" href="#">
+                                    <img width="100%" height="100%" alt="photo" src={{ post.img.url }}>
+                                </a>
+                            </div>
+                            <div class="post_lower_bar">
+                                <a class= "post_btn_like" href ="#"></a>
+                                <a class= "post_btn_comment" href ="#"></a>
+                            </div>
+                        </div>
+                    </object>
+                </a>
+            {% endfor %}
             </div>
         </div>
     </div>

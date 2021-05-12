@@ -8,16 +8,17 @@ from django.contrib.auth import authenticate, login
 from .models import Person, Post
 import os
 
+
 def feed(request):
     return render(request, 'feed.html', locals())
 
 
 def profile(request):
     person = Person.objects.filter(id=request.user.id)
-    #person.avatar = "../../static/img/profile/1.jpg"
-    # posts = Post.objects.all()
-    if person.count()>0:
-        return render(request, 'profile.html', {'user': request.user, 'person': person[0]})
+    posts = Post.objects.filter(author=person.first())
+
+    if person.count() > 0:
+        return render(request, 'profile.html', {'user': request.user, 'person': person[0], 'posts': posts})
     else:
         return render(request, 'profile.html', {'user': request.user})
 
@@ -115,9 +116,9 @@ def edit_profile_info(request):
         return HttpResponseRedirect('/profile.html', {'user': request.user, 'person': person})
     return HttpResponseRedirect('/profile.html', {'user': request.user})
 
+
 def add_post(request):
     if request.method == "POST":
-
         return HttpResponseRedirect('/profile.html', {'user': request.user})
 
     return HttpResponseRedirect('/profile.html', {'user': request.user})
